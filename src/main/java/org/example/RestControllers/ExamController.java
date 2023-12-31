@@ -1,25 +1,22 @@
 package org.example.RestControllers;
 
+
 import org.example.Question;
-import org.example.Services.QuestionService;
+import org.example.Services.ExaminerService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Map;
+import java.util.Collection;
+
 
 @RestController
 @RequestMapping("/exam/")
 public class ExamController {
-    private final QuestionService questionService;
-    public ExamController(QuestionService questionService){
-        this.questionService = questionService;
+    private final ExaminerService examinerService;
+    public ExamController(ExaminerService examinerService){
+        this.examinerService = examinerService;
     }
     @GetMapping("/get/{amount}")
-    public Map<Integer, Map<String,String>> get(@PathVariable int amount){
-        return questionService.get(amount);
-    }
-    @GetMapping("/java/add")
-    public List<Question> add(@RequestParam String question, String answer){
-        return questionService.add(question,answer);
+    public Collection<Question> getQuestions(@PathVariable int amount){
+        return examinerService.getQuestions(amount);
     }
 }
