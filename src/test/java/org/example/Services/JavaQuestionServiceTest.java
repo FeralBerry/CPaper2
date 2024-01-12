@@ -70,10 +70,14 @@ class JavaQuestionServiceTest {
                 questionSet.add(new Question(s.get()[0].toString(),s.get()[1].toString()));
             }
         }
-        Question result = new JavaQuestionService(questionSet).getRandomQuestion();
+        Question randomQuestion = new JavaQuestionService(questionSet).getRandomQuestion();
+        Set<Question> result = new HashSet<>();
+        result.add(new Question("Тестовый вопрос 1","Тестовый ответ 1"));
+        result.add(new Question("Тестовый вопрос 2","Тестовый ответ 2"));
+        result.add(new Question("Тестовый вопрос 3","Тестовый ответ 3"));
         boolean hasObject = false;
-        for (Question s: questionSet) {
-            if(s.toString().equalsIgnoreCase(result.toString())){
+        for (Question s: result) {
+            if(s.toString().equalsIgnoreCase(randomQuestion.toString())){
                 hasObject = true;
             }
         }
