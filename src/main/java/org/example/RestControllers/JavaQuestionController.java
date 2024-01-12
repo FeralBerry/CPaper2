@@ -5,10 +5,11 @@ import org.example.Services.QuestionService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
-
-@RequestMapping("/exam/java/")
+@RestController
+@RequestMapping("/exam/java")
 public class JavaQuestionController {
     private final QuestionService service;
     public JavaQuestionController(QuestionService service){
